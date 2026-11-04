@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: turnera-mvp
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/me
+    disk:
+      name: turnera-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: PORT
+        value: 3030
+      - key: APP_URL
+        sync: false
+      - key: MP_ACCESS_TOKEN
+        sync: false
+      - key: MP_WEBHOOK_SECRET
+        sync: false
+      - key: NOTIFICATION_WEBHOOK_URL
+        sync: false
